@@ -12,7 +12,7 @@ var $cardRow = document.querySelector('#card-row');
 
 var targetUrl = encodeURIComponent('https://tradestie.com/api/v1/apps/reddit');
 
-function getStocks() {
+function getStonks() {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
   xhr.responseType = 'json';
@@ -27,6 +27,8 @@ function getStocks() {
 
       var $li = document.createElement('li');
       $ul.appendChild($li);
+      $li.setAttribute('data-stonk-id', data.stonkId);
+      data.stonkId++;
 
       // Ticker
 
@@ -91,4 +93,4 @@ function getStocks() {
   xhr.send();
 }
 
-getStocks();
+getStonks();
