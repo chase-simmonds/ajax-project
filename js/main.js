@@ -28,7 +28,6 @@ function getStonks() {
       var $li = document.createElement('li');
       $ul.appendChild($li);
       $li.setAttribute('data-stonk-id', data.stonkId);
-      data.stonkId++;
 
       // Ticker
 
@@ -88,6 +87,28 @@ function getStonks() {
       $span3.textContent = $commentsData;
       $span3.setAttribute('class', 'bold');
 
+      // Owned checkbox
+
+      var $div4 = document.createElement('div');
+      $div3.appendChild($div4);
+
+      var $owned = document.createElement('span');
+      var $input = document.createElement('input');
+      $input.setAttribute('type', 'checkbox');
+      $input.setAttribute('data-stonk-id', data.stonkId);
+
+      var $watchButton = document.createElement('button');
+      $watchButton.setAttribute('class', 'watch-button');
+      $watchButton.textContent = 'Watch';
+      $watchButton.setAttribute('data-stonk-id', data.stonkId);
+      data.stonkId++;
+
+      $div4.appendChild($owned);
+      $div4.appendChild($input);
+      $div4.appendChild($watchButton);
+
+      $owned.textContent = 'Owned: ';
+      $input.textContent = 'checkbox';
     }
   });
   xhr.send();
