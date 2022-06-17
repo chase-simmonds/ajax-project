@@ -44,7 +44,7 @@ function getStonks() {
 
       // Bullish or Bearish
 
-      var $sentiment = document.createElement('text-content');
+      var $sentiment = document.createElement('span');
       var $span = document.createElement('span');
 
       var $sentimentData = xhr.response[i].sentiment;
@@ -63,7 +63,7 @@ function getStonks() {
       var $div2 = document.createElement('div');
       $div1.appendChild($div2);
 
-      var $score = document.createElement('text-content');
+      var $score = document.createElement('span');
       var $span2 = document.createElement('span');
 
       var $sentimentScoreData = xhr.response[i].sentiment_score;
@@ -78,7 +78,7 @@ function getStonks() {
       var $div3 = document.createElement('div');
       $div2.appendChild($div3);
 
-      var $comments = document.createElement('text-content');
+      var $comments = document.createElement('span');
       var $span3 = document.createElement('span');
 
       var $commentsData = xhr.response[i].no_of_comments;
