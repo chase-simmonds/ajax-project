@@ -92,8 +92,11 @@ function getStonks() {
       var $div4 = document.createElement('div');
       $div3.appendChild($div4);
 
-      var $owned = document.createElement('span');
+      var $form = document.createElement('form');
+      var $owned = document.createElement('label');
       var $input = document.createElement('input');
+
+      $owned.textContent = 'Owned: ';
       $input.setAttribute('type', 'checkbox');
       $input.setAttribute('data-stonk-id', data.stonkId);
 
@@ -103,12 +106,10 @@ function getStonks() {
       $watchButton.setAttribute('data-stonk-id', data.stonkId);
       data.stonkId++;
 
-      $div4.appendChild($owned);
-      $div4.appendChild($input);
-      $div4.appendChild($watchButton);
-
-      $owned.textContent = 'Owned: ';
-      $input.textContent = 'checkbox';
+      $div4.appendChild($form);
+      $form.appendChild($owned);
+      $form.appendChild($input);
+      $form.appendChild($watchButton);
     }
   });
   xhr.send();
