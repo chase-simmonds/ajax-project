@@ -87,7 +87,7 @@ function getStonks() {
       $span3.textContent = $commentsData;
       $span3.setAttribute('class', 'bold');
 
-      // Owned checkbox
+      // Form, owned label, checkbox input, and watch button
 
       var $div4 = document.createElement('div');
       $div3.appendChild($div4);
@@ -98,6 +98,7 @@ function getStonks() {
 
       $owned.textContent = 'Owned: ';
       $input.setAttribute('type', 'checkbox');
+      // $input.setAttribute('class', 'input-data');
       $input.setAttribute('data-stonk-id', data.stonkId);
 
       var $watchButton = document.createElement('button');
@@ -116,3 +117,7 @@ function getStonks() {
 }
 
 getStonks();
+
+// save to watchlist
+
+// add event listener for watch button and function to save it watchlist
