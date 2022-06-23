@@ -7,7 +7,6 @@
             <p sentiment>
             <p score>
             <p comments> */
-
 var $cardRow = document.querySelector('#card-row');
 
 var targetUrl = encodeURIComponent('https://tradestie.com/api/v1/apps/reddit');
@@ -17,7 +16,7 @@ function getStonks() {
   xhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    for (var i = 0; i < xhr.response.length; i++) {
+    for (let i = 0; i < xhr.response.length; i++) {
       var $colThird = document.createElement('div');
       $colThird.setAttribute('class', 'column-third');
       $cardRow.appendChild($colThird);
@@ -33,7 +32,8 @@ function getStonks() {
 
       var $ticker = document.createElement('h2');
       $li.appendChild($ticker);
-      $ticker.textContent = xhr.response[i].ticker;
+      var $tickerData = xhr.response[i].ticker;
+      $ticker.textContent = $tickerData;
 
       var $line = document.createElement('hr');
       $li.appendChild($line);
@@ -93,18 +93,20 @@ function getStonks() {
       $div3.appendChild($div4);
 
       var $form = document.createElement('form');
+      $form.setAttribute('class', 'form');
+      $form.setAttribute('data-form-id', data.stonkId);
       var $owned = document.createElement('label');
       var $input = document.createElement('input');
 
       $owned.textContent = 'Owned: ';
       $input.setAttribute('type', 'checkbox');
-      // $input.setAttribute('class', 'input-data');
-      $input.setAttribute('data-stonk-id', data.stonkId);
+      $input.setAttribute('class', 'input-data');
+      $input.setAttribute('data-input-id', data.stonkId);
 
       var $watchButton = document.createElement('button');
       $watchButton.setAttribute('class', 'watch-button');
       $watchButton.textContent = 'Watch';
-      $watchButton.setAttribute('data-stonk-id', data.stonkId);
+      $watchButton.setAttribute('data-watch-id', data.stonkId);
       data.stonkId++;
 
       $div4.appendChild($form);
@@ -112,12 +114,34 @@ function getStonks() {
       $form.appendChild($input);
       $form.appendChild($watchButton);
     }
+
+    // Save Stock
+
+    window.addEventListener('click', saveStonk);
+    function saveStonk(event) {
+      if (event.target.closest('button') !== null) {
+        event.preventDefault();
+        if (event.target.closest('li').getAttribute('data-stonk-id') === event.target.getAttribute('data-watch-id')) {
+          var stonkName = event.target.closest('li').childNodes[0].innerHTML;
+          var stonkSentiment = event.target.closest('li').childNodes[2].childNodes[1].innerHTML;
+          var stonkScore = event.target.closest('li').childNodes[2].childNodes[2].childNodes[1].innerHTML;
+          var stonkComments = event.target.closest('li').childNodes[2].childNodes[2].childNodes[2].childNodes[1].innerHTML;
+          var stonkOwned = event.target.closest('li').childNodes[2].childNodes[2].childNodes[2].childNodes[2].childNodes[0][0].checked;
+          var savedStonkData = {
+            ticker: stonkName,
+            sentiment: stonkSentiment,
+            score: stonkScore,
+            comments: stonkComments,
+            owned: stonkOwned
+          };
+          data.view = 'watchlist';
+          data.stonks.push(savedStonkData);
+        }
+      }
+    }
+
   });
   xhr.send();
 }
 
 getStonks();
-
-// save to watchlist
-
-// add event listener for watch button and function to save it watchlist
