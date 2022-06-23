@@ -34,7 +34,7 @@ h2 {
 }
 
 .green {
-  color: green;
+  color: #27a746;
   font-weight: 900;
 }
 
@@ -53,4 +53,17 @@ main {
 
 ul {
   padding: 0;
+}
+
+.watch-button {
+  width: 4rem;
+  height: 1.5rem;
+  color: white;
+  background-color: #27a746;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 3px;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 0 2px 2px gray;
+  margin-left: 5rem;
 }
