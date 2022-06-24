@@ -125,7 +125,6 @@ function getStonks() {
             comments: stonkComments,
             owned: stonkOwned
           };
-          // data.view = 'stonks';
           data.stonks.push(savedStonkData);
         }
       }
@@ -188,7 +187,6 @@ function getWatchlist() {
 
       var $li = document.createElement('li');
       $ul.appendChild($li);
-      // $li.getAttribute('data-stonk-id', data.stonk.stonkId);
 
       // Ticker
 
@@ -256,24 +254,17 @@ function getWatchlist() {
 
       var $form = document.createElement('form');
       $form.setAttribute('class', 'form');
-      // $form.setAttribute('data-form-id', data.stonkId[i]);
+
       var $owned = document.createElement('label');
       var $input = document.createElement('input');
       $owned.textContent = 'Owned: ';
       $input.setAttribute('type', 'checkbox');
       $input.setAttribute('class', 'input-data');
       $input.checked = data.stonks[i].owned;
-      // $input.setAttribute('data-input-id', data.stonkId);
-
-      // var $watchButton = document.createElement('button');
-      // $watchButton.setAttribute('class', 'unwatch-button');
-      // $watchButton.textContent = 'Unwatch';
-      // $watchButton.setAttribute('data-watch-id', data.stonkId[i]);
 
       $div4.appendChild($form);
       $form.appendChild($owned);
       $form.appendChild($input);
-      // $form.appendChild($watchButton);
     }
   }
 }
