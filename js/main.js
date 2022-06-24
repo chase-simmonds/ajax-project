@@ -1,12 +1,3 @@
-/* <div #card-row>
-    <div .column-third>
-      <ul>
-        <li>
-            <h2 ticker>
-            <hr>
-            <p sentiment>
-            <p score>
-            <p comments> */
 var $cardRow = document.querySelector('#card-row');
 
 var targetUrl = encodeURIComponent('https://tradestie.com/api/v1/apps/reddit');
@@ -265,25 +256,24 @@ function getWatchlist() {
 
       var $form = document.createElement('form');
       $form.setAttribute('class', 'form');
-      // $form.getAttribute('data-form-id', data.stonkId[i]);
+      // $form.setAttribute('data-form-id', data.stonkId[i]);
       var $owned = document.createElement('label');
       var $input = document.createElement('input');
       $owned.textContent = 'Owned: ';
       $input.setAttribute('type', 'checkbox');
       $input.setAttribute('class', 'input-data');
       $input.checked = data.stonks[i].owned;
-      // $input.getAttribute('data-input-id', data.stonkId);
+      // $input.setAttribute('data-input-id', data.stonkId);
 
-      var $watchButton = document.createElement('button');
-      $watchButton.setAttribute('class', 'unwatch-button');
-      $watchButton.textContent = 'Unwatch';
-      // $watchButton.getAttribute('data-watch-id', data.stonkId[i]);
-      // data.stonkId++;
+      // var $watchButton = document.createElement('button');
+      // $watchButton.setAttribute('class', 'unwatch-button');
+      // $watchButton.textContent = 'Unwatch';
+      // $watchButton.setAttribute('data-watch-id', data.stonkId[i]);
 
       $div4.appendChild($form);
       $form.appendChild($owned);
       $form.appendChild($input);
-      $form.appendChild($watchButton);
+      // $form.appendChild($watchButton);
     }
   }
 }
