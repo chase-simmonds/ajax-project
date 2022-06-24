@@ -134,7 +134,7 @@ function getStonks() {
             comments: stonkComments,
             owned: stonkOwned
           };
-          data.view = 'watchlist';
+          // data.view = 'stonks';
           data.stonks.push(savedStonkData);
         }
       }
@@ -145,3 +145,25 @@ function getStonks() {
 }
 
 getStonks();
+
+// view swap
+
+var $viewStonks = document.querySelector('[data-view="stonks"]');
+var $viewWatchlist = document.querySelector('[data-view="watchlist"]');
+var $viewLink = document.querySelector('#view-link');
+
+function viewSwap(event) {
+  if (data.view === 'stonks') {
+    $viewStonks.setAttribute('class', 'hidden');
+    $viewWatchlist.setAttribute('class', 'view');
+    $viewLink.textContent = 'Stonks';
+    data.view = 'watchlist';
+  } else if (data.view === 'watchlist') {
+    $viewWatchlist.setAttribute('class', 'hidden');
+    $viewStonks.setAttribute('class', 'view');
+    $viewLink.textContent = 'Watchlist';
+    data.view = 'stonks';
+  }
+}
+
+$viewLink.addEventListener('click', viewSwap);

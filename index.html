@@ -16,8 +16,10 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="column-full">
-          <h3>Wall Street Bets</h3>
+        <div class="column-full flex-row">
+          <img src="images/wsb-kid-resize.png" alt="wsb-kid">
+          <!-- <h3>Wall Street Bets</h3> -->
+          <a href="#" id="view-link" class="view-link yellow">Watchlist</a>
         </div>
       </div>
     </div>
@@ -33,7 +35,14 @@
         <div id="card-row" class="row">
         </div>
       </div>
-      <div class="view" data-view="watchlist">
+      <div class="hidden" data-view="watchlist">
+        <div class="row">
+          <div class="column-full">
+            <h1>Watchlist</h1>
+          </div>
+        </div>
+        <div id="watchlist-row" class="row">
+        </div>
       </div>
     </div>
   </main>

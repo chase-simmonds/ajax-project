@@ -67,3 +67,18 @@ ul {
   box-shadow: 0 2px 2px gray;
   margin-left: 5rem;
 }
+
+.flex-row {
+  display: flex;
+}
+
+.view-link {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.yellow {
+  color: #f1c411;
+}
