@@ -4,7 +4,8 @@
 var data = {
   view: 'stonks',
   stonks: [],
-  stonkId: 0
+  stonkId: 0,
+  watchlistId: 0
 };
 
 var previousDataJSON = localStorage.getItem('ajax-project');

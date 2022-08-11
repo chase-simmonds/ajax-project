@@ -19,9 +19,17 @@ h1 {
   font-size: 3rem;
 }
 
-li {
+.li-bullish {
   list-style: none;
-  border: 3px solid #aeaeae;
+  border: 3px solid #27a746;
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.li-bearish {
+  list-style: none;
+  border: 3px solid red;
   background-color: white;
   border-radius: 5px;
   padding: 1rem;
