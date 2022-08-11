@@ -40,12 +40,10 @@ function getStonks() {
       var $sentimentData = xhr.response[i].sentiment;
       $div1.appendChild($sentiment);
       $div1.appendChild($span);
-      $sentiment.textContent = 'Sentiment: ';
-      $span.textContent = $sentimentData;
-      if ($span.textContent === 'Bullish') {
-        $span.setAttribute('class', 'green');
+      if ($sentimentData === 'Bullish') {
+        $ul.setAttribute('class', 'li-bullish');
       } else {
-        $span.setAttribute('class', 'red');
+        $ul.setAttribute('class', 'li-bearish');
       }
 
       // Sentiment Score
@@ -60,7 +58,7 @@ function getStonks() {
       $div2.appendChild($score);
       $div2.appendChild($span2);
       $score.textContent = 'Score: ';
-      $span2.textContent = $sentimentScoreData;
+      $span2.textContent = ($sentimentScoreData * 100).toFixed(0) + '%';
       $span2.setAttribute('class', 'bold');
 
       // Comments
@@ -187,6 +185,7 @@ function getWatchlist() {
 
       var $li = document.createElement('li');
       $ul.appendChild($li);
+      $li.setAttribute('data-stonk-id', data.watchlistId);
 
       // Ticker
 
@@ -254,6 +253,7 @@ function getWatchlist() {
 
       var $form = document.createElement('form');
       $form.setAttribute('class', 'form');
+      $form.setAttribute('data-form-id', data.watchlistId);
 
       var $owned = document.createElement('label');
       var $input = document.createElement('input');
@@ -261,10 +261,18 @@ function getWatchlist() {
       $input.setAttribute('type', 'checkbox');
       $input.setAttribute('class', 'input-data');
       $input.checked = data.stonks[i].owned;
+      $input.setAttribute('data-input-id', data.watchlistId);
+
+      var $watchButton = document.createElement('button');
+      $watchButton.setAttribute('class', 'unwatch-button');
+      $watchButton.textContent = 'Unwatch';
+      $watchButton.setAttribute('data-watch-id', data.watchlistId);
+      data.watchlistId++;
 
       $div4.appendChild($form);
       $form.appendChild($owned);
       $form.appendChild($input);
+      $form.appendChild($watchButton);
     }
   }
 }
