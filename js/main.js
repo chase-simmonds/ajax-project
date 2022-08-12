@@ -2,6 +2,15 @@ var $cardRow = document.querySelector('#card-row');
 
 var targetUrl = encodeURIComponent('https://tradestie.com/api/v1/apps/reddit');
 
+window.addEventListener('load', () => {
+  const loader = document.querySelector('.loader');
+  loader.classList.add('loader-hidden');
+
+  loader.addEventListener('transitionend', () => {
+    document.body.removeChild('loader');
+  });
+});
+
 function getStonks() {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
