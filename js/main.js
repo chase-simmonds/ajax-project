@@ -58,7 +58,7 @@ function getStonks() {
       $div2.appendChild($score);
       $div2.appendChild($span2);
       $score.textContent = 'Score: ';
-      $span2.textContent = ($sentimentScoreData * 100).toFixed(0) + '%';
+      $span2.textContent = ($sentimentScoreData * 100).toFixed(1) + '%';
       $span2.setAttribute('class', 'bold');
 
       // Comments
@@ -186,6 +186,7 @@ function getWatchlist() {
       var $li = document.createElement('li');
       $ul.appendChild($li);
       $li.setAttribute('data-stonk-id', data.watchlistId);
+      $li.setAttribute('class', 'li-normal');
 
       // Ticker
 
