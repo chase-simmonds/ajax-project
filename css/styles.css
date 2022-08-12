@@ -19,6 +19,14 @@ h1 {
   font-size: 3rem;
 }
 
+.li-normal {
+  list-style: none;
+  border: 3px solid rgb(156, 153, 153);
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
 .li-bullish {
   list-style: none;
   border: 3px solid #27a746;
@@ -67,13 +75,14 @@ ul {
   width: 4rem;
   height: 1.5rem;
   color: white;
-  background-color: #27a746;
+  background-color: #878787;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 3px;
   border: none;
   font-size: 1rem;
   box-shadow: 0 2px 2px gray;
   margin-left: 5rem;
+  cursor: pointer;
 }
 
 .flex-row {
@@ -102,4 +111,8 @@ ul {
   font-size: 1rem;
   box-shadow: 0 2px 2px gray;
   margin-left: 4.5rem;
+}
+
+input {
+  cursor: pointer;
 }
