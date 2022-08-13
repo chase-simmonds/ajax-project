@@ -1,5 +1,4 @@
 /* exported data */
-// localStorage.clear();
 
 var data = {
   view: 'stonks',
