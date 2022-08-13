@@ -136,8 +136,8 @@ input {
 
 .loader::after {
   content: "";
-  width: 75px;
-  height: 75px;
+  width: 6rem;
+  height: 6rem;
   border: 15px solid #ddd;
   border-top-color: #27a746;
   border-radius: 50%;
